@@ -46,7 +46,11 @@ def show_stu_marks():
     if course_id in marks:
         print(f"Student marks for course {course_id}:")
         for stu_id, mark in marks[course_id].items():
-            print(f"Student ID: {stu_id}, Mark: {mark}")
+            stu_name = next((student[1] for student in students if student[0] == stu_id), None)
+            if stu_name:
+                print(f"Student ID: {stu_id}, Student Name: {stu_name}, Mark: {mark}")
+            else:
+                print(f"Student ID: {stu_id}, Mark: {mark}")
     else:
         print(f"No marks are found for course {course_id}")
 
@@ -54,18 +58,6 @@ input_stu_inf()
 input_courses()
 list_courses()
 list_stu()
+input_marks()
+show_stu_marks()
 
-while True:
-    print("\nPress 1 to input marks")
-    print("Press 2 to show student marks")
-    print("Press 3 to quit")
-    
-    choice = input("Enter 1 to 3: ")
-    if choice == '1':
-        input_marks()
-    elif choice == '2':
-        show_stu_marks()
-    elif choice == '3':
-        break
-    else:
-        print("Fail number")
