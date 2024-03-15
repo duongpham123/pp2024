@@ -3,6 +3,7 @@ from output import Manage_Output
 from domains.student import Student
 from domains.course import Course
 from domains.mark import Mark
+import pickle
 from compression import compress_data, decompress_data, check_data_file
 
 if check_data_file():
@@ -44,9 +45,11 @@ while True:
     else:
         print("Invalid choice. Please enter a number between 1 and 4.")
 
-compression_method = input("Select compression method (zip):")
+compression_method = input("Select compression method (zip/tar):")
 if compression_method == "zip":
-    compress_data()
+    compress_data(mark)
     print("Data compressed successfully.")
+elif compression_method == "tar":
+    pass
 else:
     print("invalid compression method selected")
