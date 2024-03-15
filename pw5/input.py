@@ -14,10 +14,6 @@ class Manage_Input:
                 f.write(f"\n|Student ID: {stu_id}| Student Name: {stu_name}| DoB: {stu_dob}|")
         return students_info
     
-
-   
-    
-    
     def input_courses_info():
         num_courses = int(input("Enter the number of courses: "))
         courses_info = []
